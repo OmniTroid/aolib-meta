@@ -79,46 +79,12 @@
       "default": ""
     },
     "offset": {
-      "type": "object",
-      "properties": {
-        "x": {
-          "type": "number"
-        },
-        "y": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "x",
-        "y"
-      ],
-      "additionalProperties": false,
-      "default": {
-        "x": 0,
-        "y": 0
-      },
-      "x-fanta-escape": true
+      "$ref": "Offset.type.json",
+      "default": { "x": 0, "y": 0 }
     },
     "paired_offset": {
-      "type": "object",
-      "properties": {
-        "x": {
-          "type": "number"
-        },
-        "y": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "x",
-        "y"
-      ],
-      "additionalProperties": false,
-      "default": {
-        "x": 0,
-        "y": 0
-      },
-      "x-fanta-escape": true
+      "$ref": "Offset.type.json",
+      "default": { "x": 0, "y": 0 }
     },
     "paired_flip": {
       "$ref": "Flip.enum.json",
