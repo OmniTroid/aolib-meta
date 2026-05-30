@@ -1,23 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "PV",
+  "title": "SP",
   "type": "object",
   "properties": {
     "$header": {
       "type": "string",
-      "const": "PV"
+      "const": "SP"
     },
-    "player_id": {
-      "type": "number"
-    },
-    "char_id": {
-      "type": "number"
-    }
+    "side": { "$ref": "Side.enum.json" }
   },
   "required": [
     "$header",
-    "player_id",
-    "char_id"
+    "side"
   ],
   "additionalProperties": false
 }

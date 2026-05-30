@@ -7,15 +7,7 @@
       "type": "string",
       "const": "ARUP"
     },
-    "update_type": {
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        3
-      ]
-    },
+    "update_type": { "$ref": "AreaUpdateType.enum.json" },
     "update_data": {
       "type": "array",
       "items": {
@@ -31,5 +23,6 @@
     "update_type",
     "update_data"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-fanta-codec": "ARUP"
 }

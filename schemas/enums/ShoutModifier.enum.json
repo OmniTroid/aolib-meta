@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ShoutModifier.enum.json",
+  "title": "ShoutModifier",
+  "description": "Shout / objection selector. The legacy `4&{name}` wire form for naming a custom shout strips to CUSTOM at the codec layer.",
+  "type": "integer",
+  "enum": [0, 1, 2, 3, 4],
+  "x-enum-names": ["NONE", "HOLD_IT", "OBJECTION", "TAKE_THAT", "CUSTOM"]
+}

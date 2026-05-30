@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MS",
+  "type": "object",
+  "properties": {
+    "$header": { "type": "string", "const": "MS" },
+    "desk_modifier": { "$ref": "DeskModifier.enum.json", "default": 1 },
+    "preanim": { "type": "string", "default": "" },
+    "character": { "type": "string" },
+    "emote": { "type": "string" },
+    "message": { "type": "string" },
+    "side": { "$ref": "Side.enum.json" },
+    "sfx_name": { "type": "string", "default": "" },
+    "emote_modifier": { "$ref": "EmoteModifier.enum.json", "default": 0 },
+    "char_id": { "type": "number" },
+    "sfx_delay": { "type": "number", "default": 0 },
+    "shout_modifier": { "$ref": "ShoutModifier.enum.json", "default": 0 },
+    "evidence_id": { "type": "number", "default": 0 },
+    "flip": { "$ref": "Flip.enum.json", "default": 0 },
+    "realization": { "type": "boolean", "default": false },
+    "text_color": { "$ref": "TextColor.enum.json", "default": 0 },
+    "showname": { "type": "string", "default": "" },
+    "paired_charid": { "type": "number", "default": -1 },
+    "paired_name": { "type": "string", "default": "" },
+    "paired_emote": { "type": "string", "default": "" },
+    "offset": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "required": ["x", "y"],
+      "additionalProperties": false,
+      "default": { "x": 0, "y": 0 },
+      "x-fanta-escape": true
+    },
+    "paired_offset": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      },
+      "required": ["x", "y"],
+      "additionalProperties": false,
+      "default": { "x": 0, "y": 0 },
+      "x-fanta-escape": true
+    },
+    "paired_flip": { "$ref": "Flip.enum.json", "default": 0 },
+    "noninterrupting_preanim": { "type": "boolean", "default": false },
+    "sfx_looping": { "type": "boolean", "default": false },
+    "screenshake": { "type": "boolean", "default": false },
+    "frames_shake": { "type": "string", "default": "" },
+    "frames_realization": { "type": "string", "default": "" },
+    "frames_sfx": { "type": "string", "default": "" },
+    "additive": { "type": "boolean", "default": false },
+    "effect": { "type": "string", "default": "" }
+  },
+  "required": ["$header", "character", "emote", "message", "side", "char_id"],
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "EmoteModifier.enum.json",
+  "title": "EmoteModifier",
+  "description": "Emote behavior selector. Spec values 3 and 4 are documented as unused.",
+  "type": "integer",
+  "enum": [0, 1, 2, 5, 6],
+  "x-enum-names": [
+    "NO_PREANIM",
+    "PREANIM",
+    "PREANIM_AND_OBJECTION",
+    "ZOOM",
+    "OBJECTION_ZOOM"
+  ]
+}
