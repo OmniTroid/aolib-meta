@@ -4,6 +4,16 @@
   "title": "Flip",
   "description": "Sprite mirroring. Spec defines only NONE / HORIZONTAL; VERTICAL and HORIZONTAL_AND_VERTICAL are non-spec extensions servers may send.",
   "type": "integer",
-  "enum": [0, 1, 2, 3],
-  "x-enum-names": ["NONE", "HORIZONTAL", "VERTICAL", "HORIZONTAL_AND_VERTICAL"]
+  "enum": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "x-enum-names": [
+    "NONE",
+    "HORIZONTAL",
+    "VERTICAL",
+    "HORIZONTAL_AND_VERTICAL"
+  ]
 }

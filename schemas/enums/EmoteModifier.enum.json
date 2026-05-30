@@ -4,7 +4,13 @@
   "title": "EmoteModifier",
   "description": "Emote behavior selector. Spec values 3 and 4 are documented as unused.",
   "type": "integer",
-  "enum": [0, 1, 2, 5, 6],
+  "enum": [
+    0,
+    1,
+    2,
+    5,
+    6
+  ],
   "x-enum-names": [
     "NO_PREANIM",
     "PREANIM",

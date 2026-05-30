@@ -7,7 +7,9 @@
       "type": "string",
       "const": "ARUP"
     },
-    "update_type": { "$ref": "AreaUpdateType.enum.json" },
+    "update_type": {
+      "$ref": "AreaUpdateType.enum.json"
+    },
     "update_data": {
       "type": "array",
       "items": {

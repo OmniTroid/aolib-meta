@@ -4,7 +4,16 @@
   "title": "Side",
   "description": "Character position. Wire values are the lowercase 3-letter codes.",
   "type": "string",
-  "enum": ["def", "pro", "hld", "hlp", "wit", "jud", "jur", "sea"],
+  "enum": [
+    "def",
+    "pro",
+    "hld",
+    "hlp",
+    "wit",
+    "jud",
+    "jur",
+    "sea"
+  ],
   "x-enum-names": [
     "DEFENSE",
     "PROSECUTION",

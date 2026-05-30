@@ -7,7 +7,9 @@
       "type": "string",
       "const": "SP"
     },
-    "side": { "$ref": "Side.enum.json" }
+    "side": {
+      "$ref": "Side.enum.json"
+    }
   },
   "required": [
     "$header",
