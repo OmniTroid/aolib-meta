@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "Side.enum.json",
+  "$id": "/enums/Side.schema.json",
   "title": "Side",
   "description": "Character position. Wire values are the lowercase 3-letter codes.",
   "type": "string",

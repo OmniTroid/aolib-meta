@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/packets/ZZ.schema.json",
   "title": "ZZ",
   "type": "object",
   "properties": {

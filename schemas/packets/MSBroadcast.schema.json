@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/packets/MSBroadcast.schema.json",
   "title": "MS",
   "type": "object",
   "properties": {
@@ -8,7 +9,7 @@
       "const": "MS"
     },
     "desk_modifier": {
-      "$ref": "DeskModifier.enum.json",
+      "$ref": "../enums/DeskModifier.schema.json",
       "default": 1
     },
     "preanim": {
@@ -25,14 +26,14 @@
       "type": "string"
     },
     "side": {
-      "$ref": "Side.enum.json"
+      "$ref": "../enums/Side.schema.json"
     },
     "sfx_name": {
       "type": "string",
       "default": ""
     },
     "emote_modifier": {
-      "$ref": "EmoteModifier.enum.json",
+      "$ref": "../enums/EmoteModifier.schema.json",
       "default": 0
     },
     "char_id": {
@@ -43,7 +44,7 @@
       "default": 0
     },
     "shout_modifier": {
-      "$ref": "ShoutModifier.enum.json",
+      "$ref": "../enums/ShoutModifier.schema.json",
       "default": 0
     },
     "evidence_id": {
@@ -51,7 +52,7 @@
       "default": 0
     },
     "flip": {
-      "$ref": "Flip.enum.json",
+      "$ref": "../enums/Flip.schema.json",
       "default": 0
     },
     "realization": {
@@ -59,7 +60,7 @@
       "default": false
     },
     "text_color": {
-      "$ref": "TextColor.enum.json",
+      "$ref": "../enums/TextColor.schema.json",
       "default": 0
     },
     "showname": {
@@ -79,15 +80,21 @@
       "default": ""
     },
     "offset": {
-      "$ref": "Offset.type.json",
-      "default": { "x": 0, "y": 0 }
+      "$ref": "../types/Offset.schema.json",
+      "default": {
+        "x": 0,
+        "y": 0
+      }
     },
     "paired_offset": {
-      "$ref": "Offset.type.json",
-      "default": { "x": 0, "y": 0 }
+      "$ref": "../types/Offset.schema.json",
+      "default": {
+        "x": 0,
+        "y": 0
+      }
     },
     "paired_flip": {
-      "$ref": "Flip.enum.json",
+      "$ref": "../enums/Flip.schema.json",
       "default": 0
     },
     "noninterrupting_preanim": {

@@ -1,14 +1,21 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "Offset.type.json",
+  "$id": "/types/Offset.schema.json",
   "title": "Offset",
   "description": "Integer (x, y) screen-coordinate pair carried in MS offset / paired_offset slots.",
   "type": "object",
   "properties": {
-    "x": { "type": "number" },
-    "y": { "type": "number" }
+    "x": {
+      "type": "number"
+    },
+    "y": {
+      "type": "number"
+    }
   },
-  "required": ["x", "y"],
+  "required": [
+    "x",
+    "y"
+  ],
   "additionalProperties": false,
   "x-fanta-unescape-amp": true
 }

@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/packets/ARUP.schema.json",
   "title": "ARUP",
   "type": "object",
   "properties": {
@@ -8,7 +9,7 @@
       "const": "ARUP"
     },
     "update_type": {
-      "$ref": "AreaUpdateType.enum.json"
+      "$ref": "../enums/AreaUpdateType.schema.json"
     },
     "update_data": {
       "type": "array",

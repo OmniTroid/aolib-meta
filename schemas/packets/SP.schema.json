@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/packets/SP.schema.json",
   "title": "SP",
   "type": "object",
   "properties": {
@@ -8,7 +9,7 @@
       "const": "SP"
     },
     "side": {
-      "$ref": "Side.enum.json"
+      "$ref": "../enums/Side.schema.json"
     }
   },
   "required": [

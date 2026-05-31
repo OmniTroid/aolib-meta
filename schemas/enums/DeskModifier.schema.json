@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "DeskModifier.enum.json",
+  "$id": "/enums/DeskModifier.schema.json",
   "title": "DeskModifier",
   "description": "Desk visibility behavior.",
   "type": "integer",

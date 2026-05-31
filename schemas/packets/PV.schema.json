@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/packets/PV.schema.json",
   "title": "PV",
   "type": "object",
   "properties": {
