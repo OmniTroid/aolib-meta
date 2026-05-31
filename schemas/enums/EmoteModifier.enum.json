@@ -8,6 +8,8 @@
     0,
     1,
     2,
+    3,
+    4,
     5,
     6
   ],
@@ -15,6 +17,8 @@
     "NO_PREANIM",
     "PREANIM",
     "PREANIM_AND_OBJECTION",
+    "UNUSED_3",
+    "UNUSED_4",
     "ZOOM",
     "OBJECTION_ZOOM"
   ]
