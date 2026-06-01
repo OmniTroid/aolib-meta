@@ -16,5 +16,6 @@
     "$header",
     "uid"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

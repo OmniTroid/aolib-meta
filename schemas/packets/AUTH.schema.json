@@ -16,5 +16,6 @@
     "$header",
     "auth_state"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

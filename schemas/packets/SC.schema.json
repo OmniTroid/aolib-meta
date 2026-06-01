@@ -36,5 +36,6 @@
     "$header",
     "char_data"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

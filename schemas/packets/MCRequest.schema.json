@@ -28,5 +28,6 @@
     "name",
     "char_id"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "server"
 }

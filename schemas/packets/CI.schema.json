@@ -36,5 +36,6 @@
     "batchIndex",
     "entries"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

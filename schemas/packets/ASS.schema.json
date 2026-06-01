@@ -16,5 +16,6 @@
     "$header",
     "asset_url"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

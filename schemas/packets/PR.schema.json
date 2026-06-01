@@ -20,5 +20,6 @@
     "id",
     "type"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

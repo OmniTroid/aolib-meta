@@ -24,5 +24,6 @@
     "player_id",
     "char_id"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "server"
 }

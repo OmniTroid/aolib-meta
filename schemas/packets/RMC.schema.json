@@ -16,5 +16,6 @@
     "$header",
     "toTime"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

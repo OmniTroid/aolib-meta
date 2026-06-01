@@ -16,5 +16,6 @@
     "$header",
     "payload"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "server"
 }

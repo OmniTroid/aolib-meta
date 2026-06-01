@@ -16,5 +16,6 @@
     "$header",
     "reason"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

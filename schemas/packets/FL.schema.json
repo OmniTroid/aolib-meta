@@ -19,5 +19,6 @@
     "$header",
     "features"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

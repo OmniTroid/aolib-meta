@@ -20,5 +20,6 @@
     "name",
     "message"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "server"
 }

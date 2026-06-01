@@ -1,28 +1,24 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "/packets/PE.schema.json",
-  "title": "PE",
+  "$id": "/packets/ZZRequest.schema.json",
+  "title": "ZZRequest",
   "type": "object",
   "properties": {
     "$header": {
       "type": "string",
-      "const": "PE"
+      "const": "ZZ"
     },
-    "name": {
+    "reason": {
       "type": "string"
     },
-    "description": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
+    "target": {
+      "type": "number",
+      "default": -1
     }
   },
   "required": [
     "$header",
-    "name",
-    "description",
-    "image"
+    "reason"
   ],
   "additionalProperties": false,
   "x-receiver": "server"

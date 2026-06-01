@@ -20,5 +20,6 @@
     "$header",
     "background"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

@@ -20,5 +20,6 @@
     "software",
     "version"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "server"
 }

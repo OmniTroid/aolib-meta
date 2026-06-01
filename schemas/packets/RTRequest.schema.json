@@ -1,28 +1,24 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "/packets/PE.schema.json",
-  "title": "PE",
+  "$id": "/packets/RTRequest.schema.json",
+  "title": "RTRequest",
   "type": "object",
   "properties": {
     "$header": {
       "type": "string",
-      "const": "PE"
+      "const": "RT"
     },
-    "name": {
+    "animation": {
       "type": "string"
     },
-    "description": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
+    "judgeId": {
+      "type": "number",
+      "default": -1
     }
   },
   "required": [
     "$header",
-    "name",
-    "description",
-    "image"
+    "animation"
   ],
   "additionalProperties": false,
   "x-receiver": "server"

@@ -16,5 +16,6 @@
     "$header",
     "hdid"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "server"
 }

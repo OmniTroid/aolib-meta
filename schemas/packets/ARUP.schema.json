@@ -27,5 +27,6 @@
     "update_data"
   ],
   "additionalProperties": false,
-  "x-fanta-codec": "ARUP"
+  "x-fanta-codec": "ARUP",
+  "x-receiver": "client"
 }

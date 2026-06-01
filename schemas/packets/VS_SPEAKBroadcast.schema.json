@@ -20,5 +20,6 @@
     "uid",
     "on"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

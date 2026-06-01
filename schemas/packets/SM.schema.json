@@ -28,5 +28,6 @@
     "$header",
     "music_list"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

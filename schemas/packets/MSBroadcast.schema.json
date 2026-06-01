@@ -138,5 +138,6 @@
     "side",
     "char_id"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

@@ -16,5 +16,6 @@
     "$header",
     "state"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

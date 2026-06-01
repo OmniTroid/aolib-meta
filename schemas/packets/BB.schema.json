@@ -16,5 +16,6 @@
     "$header",
     "message"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }

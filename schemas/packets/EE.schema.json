@@ -28,5 +28,6 @@
     "description",
     "image"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "server"
 }

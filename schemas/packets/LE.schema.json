@@ -36,5 +36,6 @@
     "$header",
     "evidence"
   ],
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-receiver": "client"
 }
