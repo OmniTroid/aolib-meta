@@ -15,13 +15,13 @@
     "sea"
   ],
   "x-enum-names": [
-    "DEFENSE",
-    "PROSECUTION",
-    "DEFENSE_HELPER",
-    "PROSECUTION_HELPER",
-    "WITNESS",
-    "JUDGE",
-    "JURY",
-    "SEANCE"
+    "defense",
+    "prosecution",
+    "defense_helper",
+    "prosecution_helper",
+    "witness",
+    "judge",
+    "jury",
+    "seance"
   ]
 }

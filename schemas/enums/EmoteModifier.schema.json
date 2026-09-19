@@ -14,12 +14,12 @@
     6
   ],
   "x-enum-names": [
-    "NO_PREANIM",
-    "PREANIM",
-    "PREANIM_AND_OBJECTION",
-    "UNUSED_3",
-    "UNUSED_4",
-    "ZOOM",
-    "OBJECTION_ZOOM"
+    "no_preanim",
+    "preanim",
+    "preanim_and_objection",
+    "unused_3",
+    "unused_4",
+    "zoom",
+    "objection_zoom"
   ]
 }

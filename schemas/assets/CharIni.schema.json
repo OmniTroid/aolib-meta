@@ -141,7 +141,7 @@
             "integer",
             "null"
           ],
-          "description": "Sound delay in ticks, or null.",
+          "description": "Sound delay in milliseconds, or null. Legacy [soundt] is in ticks (1 tick = 60 ms) and is normalized here.",
           "default": null
         }
       },

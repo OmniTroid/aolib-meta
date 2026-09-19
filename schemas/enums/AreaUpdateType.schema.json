@@ -11,9 +11,9 @@
     3
   ],
   "x-enum-names": [
-    "PLAYER_COUNT",
-    "STATUS",
-    "CASE_MANAGER",
-    "LOCKED"
+    "player_count",
+    "status",
+    "case_manager",
+    "locked"
   ]
 }

@@ -12,10 +12,10 @@
     4
   ],
   "x-enum-names": [
-    "NONE",
-    "HOLD_IT",
-    "OBJECTION",
-    "TAKE_THAT",
-    "CUSTOM"
+    "none",
+    "hold_it",
+    "objection",
+    "take_that",
+    "custom"
   ]
 }

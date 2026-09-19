@@ -38,11 +38,12 @@ number = 2
 2 = think
 
 [emote objection]
-anim    = objection      ; sprite stem (2D) or base loop VMD (3D)
-preanim = point          ; sprite/VMD, or omit / `-` for none
-sound   = objection      ; optional
-zoom    = 0              ; 2D emote modifier; 3D ignores it (see camera.json)
-desk    = 1              ; optional desk modifier
+anim      = objection    ; sprite stem (2D) or base loop VMD (3D)
+preanim   = point        ; sprite/VMD, or omit / `-` for none
+sound     = objection    ; optional
+sounddelay = 480         ; optional, milliseconds
+modifier  = zoom         ; number or EmoteModifier name; 3D ignores it (see camera.json)
+deskmod   = shown        ; optional; number or DeskModifier name
 
 [emote think]
 anim = think_loop
@@ -51,10 +52,15 @@ anim = think_loop
 The **block name** (`objection`, `think`) is the emote's `key`: the stable
 identity shared by the button, `camera.json`, and — by default — the animation
 file name. It is independent of button order, so reordering `[emotions]` never
-shifts anything. Block field names map to `Emote` fields: `anim`, `preanim`
-(`-`/absent → null), `sound`, `sounddelay`, `desk` → `deskMod`, `zoom` →
-`modifier`. `name` (the display label) defaults to the block name unless a
-`desc =` field overrides it.
+shifts anything. Block field names are the lowercased `Emote` field names:
+`name` (display label; defaults to the block name), `anim`, `preanim`
+(`-`/absent → null), `sound`, `sounddelay` (milliseconds), `deskmod`, and
+`modifier`. `modifier` and `deskmod` each accept either a number or the matching enum
+name, case-insensitive: EmoteModifier for `modifier` (`no_preanim` 0,
+`preanim` 1, `preanim_and_objection` 2, `zoom` 5, `objection_zoom` 6) and
+DeskModifier for `deskmod` (`hidden` 0, `shown` 1, `hide_during_preanim` 2,
+`show_during_preanim` 3, `hide_and_center_during_preanim` 4,
+`show_during_preanim_then_center` 5).
 
 This encoding is valid for 2D and 3D. New characters (and tools) should emit it.
 
@@ -78,7 +84,9 @@ number = 2
 ```
 
 `N = desc#preanim#anim#modifier#deskMod`, zipped with `[soundn]` (sound) and
-`[soundt]` (sound delay) by id. When no `[emote <name>]` blocks are present a
+`[soundt]` (sound delay) by id. `[soundt]` is in **ticks** — one tick is 60 ms,
+the message text update interval — and is normalized to milliseconds in
+`Emote.soundDelay` (ticks × 60). When no `[emote <name>]` blocks are present a
 parser reads these banks. Normalized `key` is the stringified id. Comment
 markers are `;` and `//` only — never `#` (it delimits emote fields).
 

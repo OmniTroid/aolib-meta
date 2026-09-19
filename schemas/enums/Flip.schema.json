@@ -11,9 +11,9 @@
     3
   ],
   "x-enum-names": [
-    "NONE",
-    "HORIZONTAL",
-    "VERTICAL",
-    "HORIZONTAL_AND_VERTICAL"
+    "none",
+    "horizontal",
+    "vertical",
+    "horizontal_and_vertical"
   ]
 }

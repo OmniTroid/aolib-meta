@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "/enums/TextColor.schema.json",
   "title": "TextColor",
-  "description": "Chat message text color. `BLUE` also disables the talking animation.",
+  "description": "Chat message text color. `blue` also disables the talking animation.",
   "type": "integer",
   "enum": [
     0,
@@ -17,15 +17,15 @@
     9
   ],
   "x-enum-names": [
-    "WHITE",
-    "GREEN",
-    "RED",
-    "ORANGE",
-    "BLUE",
-    "YELLOW",
-    "PINK",
-    "CYAN",
-    "GREY",
-    "RAINBOW"
+    "white",
+    "green",
+    "red",
+    "orange",
+    "blue",
+    "yellow",
+    "pink",
+    "cyan",
+    "grey",
+    "rainbow"
   ]
 }
