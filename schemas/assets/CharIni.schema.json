@@ -136,7 +136,7 @@
           "description": "Sound effect for this emote, or null. Legacy [soundn] is a stem the client expands; in [emote <name>] blocks it is the full filename with extension (.opus/.wav/.ogg).",
           "default": null
         },
-        "soundDelay": {
+        "soundDelayMs": {
           "type": [
             "integer",
             "null"
@@ -154,7 +154,7 @@
         "modifier",
         "deskMod",
         "sound",
-        "soundDelay"
+        "soundDelayMs"
       ],
       "additionalProperties": false
     }

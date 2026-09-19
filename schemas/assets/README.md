@@ -41,7 +41,7 @@ number = 2
 anim      = objection.gif ; animation file, extension REQUIRED (.gif/.webp/.png 2D, .vmd 3D)
 preanim   = point.gif     ; animation file with extension, or omit / `-` for none
 sound     = objection.opus ; optional; file with extension (.opus/.wav/.ogg)
-sounddelay = 480          ; optional, milliseconds
+sounddelayms = 480        ; optional, milliseconds
 modifier  = zoom          ; number or EmoteModifier name; 3D ignores it (see camera.json)
 deskmod   = shown         ; optional; number or DeskModifier name
 
@@ -53,7 +53,7 @@ The **block name** (`objection`, `think`) is the emote's `key`: the stable
 identity shared by the button and `camera.json`. It is independent of button
 order, so reordering `[emotions]` never shifts anything. Block field names are
 the lowercased `Emote` field names: `name` (display label; defaults to the
-block name), `anim`, `preanim` (`-`/absent → null), `sound`, `sounddelay`
+block name), `anim`, `preanim` (`-`/absent → null), `sound`, `sounddelayms`
 (milliseconds), `deskmod`, and `modifier`. Unlike the legacy stems, a block's
 file references **must carry the file extension** — no extension guessing:
 `anim`/`preanim` (`.gif`/`.webp`/`.png` for 2D, `.vmd` for 3D) and `sound`
@@ -89,7 +89,7 @@ number = 2
 `N = desc#preanim#anim#modifier#deskMod`, zipped with `[soundn]` (sound) and
 `[soundt]` (sound delay) by id. `[soundt]` is in **ticks** — one tick is 60 ms,
 the message text update interval — and is normalized to milliseconds in
-`Emote.soundDelay` (ticks × 60). When no `[emote <name>]` blocks are present a
+`Emote.soundDelayMs` (ticks × 60). When no `[emote <name>]` blocks are present a
 parser reads these banks. Normalized `key` is the stringified id. Comment
 markers are `;` and `//` only — never `#` (it delimits emote fields).
 
