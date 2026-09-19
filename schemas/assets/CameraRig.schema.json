@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/assets/CameraRig.schema.json",
+  "title": "CameraRig",
+  "description": "Parsed shape of a character's camera.json asset (3D characters only). Rigs a camera per emote for the 3D viewport, which — unlike a 2D sprite — has no framing baked into the art. Poses are normalized to the character's height so a rig is stable across models and scales. A `default` resting shot applies everywhere; each emote may override it. See assets/README.md for authoring and playback semantics.",
+  "type": "object",
+  "properties": {
+    "default": {
+      "$ref": "#/definitions/Clip",
+      "description": "Resting shot applied to every emote's idle/talking loop unless the emote overrides it. Usually a static Pose."
+    },
+    "emotes": {
+      "type": "object",
+      "description": "Per-emote camera, keyed by the emote's `key` (the char.ini [emote <name>] block name).",
+      "additionalProperties": {
+        "$ref": "#/definitions/EmoteCamera"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "Pose": {
+      "type": "object",
+      "description": "A camera framing, normalized to character height. Every field is an override of the resolved default, so a partial pose (e.g. only `distance`) inherits the rest. A bare Pose used as a Clip is a static hold.",
+      "properties": {
+        "targetY": {
+          "type": "number",
+          "description": "Height the camera looks at, as a fraction of the character's height (0 = feet, 1 = head)."
+        },
+        "distance": {
+          "type": "number",
+          "description": "Camera distance from the target, in character-heights.",
+          "exclusiveMinimum": 0
+        },
+        "yaw": {
+          "type": "number",
+          "description": "Horizontal orbit in degrees; 0 = facing the character head-on, positive = orbit to the character's left."
+        },
+        "pitch": {
+          "type": "number",
+          "description": "Vertical orbit in degrees; 0 = level, positive = looking down."
+        },
+        "fov": {
+          "type": "number",
+          "description": "Vertical field of view in degrees.",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 180
+        }
+      },
+      "additionalProperties": false
+    },
+    "Keyframe": {
+      "type": "object",
+      "description": "A Pose at a point in time. `t` is normalized 0..1 across the phase's driving motion (the preanim VMD for a preanim clip, the base loop for a loop clip), so keys retime automatically if the motion length changes.",
+      "properties": {
+        "t": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "targetY": {
+          "type": "number"
+        },
+        "distance": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "yaw": {
+          "type": "number"
+        },
+        "pitch": {
+          "type": "number"
+        },
+        "fov": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 180
+        }
+      },
+      "required": [
+        "t"
+      ],
+      "additionalProperties": false
+    },
+    "KeyedClip": {
+      "type": "object",
+      "description": "An animated camera: poses interpolated over the phase. A loop clip's first and last keys should match (t=0 and t=1) so the cycle is seamless.",
+      "properties": {
+        "keys": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Keyframe"
+          },
+          "minItems": 1
+        },
+        "easing": {
+          "type": "string",
+          "enum": [
+            "linear",
+            "easeIn",
+            "easeOut",
+            "easeInOut"
+          ],
+          "default": "easeInOut"
+        }
+      },
+      "required": [
+        "keys"
+      ],
+      "additionalProperties": false
+    },
+    "Clip": {
+      "description": "Either a static Pose (a bare framing object) or an animated KeyedClip (has a `keys` array). The two are disjoint: a Pose has no `keys`.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Pose"
+        },
+        {
+          "$ref": "#/definitions/KeyedClip"
+        }
+      ]
+    },
+    "EmoteCamera": {
+      "type": "object",
+      "description": "Camera for one emote. `loop` is the idle/talking shot (static or looping); `preanim` is a one-shot played during the preanim phase, after which the camera eases back to `loop`. Both optional: absent `loop` falls back to the rig `default`; absent `preanim` means the preanim phase keeps the loop shot.",
+      "properties": {
+        "loop": {
+          "$ref": "#/definitions/Clip"
+        },
+        "preanim": {
+          "$ref": "#/definitions/Clip"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

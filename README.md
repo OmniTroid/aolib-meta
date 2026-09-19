@@ -14,10 +14,16 @@ schemas/
   packets/<Name>.schema.json   one per AO packet
   enums/<Name>.schema.json     shared named enums, $ref'd from packets
   types/<Name>.schema.json     shared object types, $ref'd from packets
+  assets/<Name>.schema.json    character asset-file formats (char.ini, camera.json)
 ```
 
 All files use the `.schema.json` suffix. Kind is determined by directory,
 not by filename.
+
+`assets/` describes files the client fetches from `characters/<name>/`, not
+wire packets — they carry no `$header` or `x-receiver`, are consumed by asset
+parsers rather than the packet codegen, and their INI/text grammar (which JSON
+Schema can't express) is documented in `assets/README.md`.
 
 Each schema carries an absolute-path `$id` matching its location, e.g.
 `/packets/MS.schema.json`, `/enums/Side.schema.json`. Packets reference
