@@ -38,25 +38,28 @@ number = 2
 2 = think
 
 [emote objection]
-anim      = objection    ; sprite stem (2D) or base loop VMD (3D)
-preanim   = point        ; sprite/VMD, or omit / `-` for none
-sound     = objection    ; optional
-sounddelay = 480         ; optional, milliseconds
-modifier  = zoom         ; number or EmoteModifier name; 3D ignores it (see camera.json)
-deskmod   = shown        ; optional; number or DeskModifier name
+anim      = objection.gif ; animation file, extension REQUIRED (.gif/.webp/.png 2D, .vmd 3D)
+preanim   = point.gif     ; animation file with extension, or omit / `-` for none
+sound     = objection.opus ; optional; file with extension (.opus/.wav/.ogg)
+sounddelay = 480          ; optional, milliseconds
+modifier  = zoom          ; number or EmoteModifier name; 3D ignores it (see camera.json)
+deskmod   = shown         ; optional; number or DeskModifier name
 
 [emote think]
-anim = think_loop
+anim = think_loop.gif
 ```
 
 The **block name** (`objection`, `think`) is the emote's `key`: the stable
-identity shared by the button, `camera.json`, and — by default — the animation
-file name. It is independent of button order, so reordering `[emotions]` never
-shifts anything. Block field names are the lowercased `Emote` field names:
-`name` (display label; defaults to the block name), `anim`, `preanim`
-(`-`/absent → null), `sound`, `sounddelay` (milliseconds), `deskmod`, and
-`modifier`. `modifier` and `deskmod` each accept either a number or the matching enum
-name, case-insensitive: EmoteModifier for `modifier` (`no_preanim` 0,
+identity shared by the button and `camera.json`. It is independent of button
+order, so reordering `[emotions]` never shifts anything. Block field names are
+the lowercased `Emote` field names: `name` (display label; defaults to the
+block name), `anim`, `preanim` (`-`/absent → null), `sound`, `sounddelay`
+(milliseconds), `deskmod`, and `modifier`. Unlike the legacy stems, a block's
+file references **must carry the file extension** — no extension guessing:
+`anim`/`preanim` (`.gif`/`.webp`/`.png` for 2D, `.vmd` for 3D) and `sound`
+(`.opus`/`.wav`/`.ogg`). `modifier` and `deskmod` each
+accept either a number or the matching enum name, case-insensitive:
+EmoteModifier for `modifier` (`no_preanim` 0,
 `preanim` 1, `preanim_and_objection` 2, `zoom` 5, `objection_zoom` 6) and
 DeskModifier for `deskmod` (`hidden` 0, `shown` 1, `hide_during_preanim` 2,
 `show_during_preanim` 3, `hide_and_center_during_preanim` 4,

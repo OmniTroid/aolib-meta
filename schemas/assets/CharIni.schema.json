@@ -104,7 +104,7 @@
         },
         "anim": {
           "type": "string",
-          "description": "Animation base name. For 2D the client derives (a)<anim>/(b)<anim> sprite frames; for 3D it is the base loop VMD stem (idle and talking share it, mouth is morph-driven).",
+          "description": "Animation reference. In legacy banks this is a stem the client expands (2D: (a)<anim>/(b)<anim> sprite frames; 3D: base loop VMD). In [emote <name>] blocks it is the full animation filename, extension required (.gif/.webp/.png 2D, .vmd 3D).",
           "default": ""
         },
         "preanim": {
@@ -112,7 +112,7 @@
             "string",
             "null"
           ],
-          "description": "Pre-animation base name (sprite for 2D, VMD for 3D), or null when none (`-` in the file).",
+          "description": "Pre-animation, or null when none (`-` in the file). Legacy: a stem. In [emote <name>] blocks: the full filename with extension (as `anim`).",
           "default": null
         },
         "modifier": {
@@ -133,7 +133,7 @@
             "string",
             "null"
           ],
-          "description": "Sound-effect name for this emote, or null.",
+          "description": "Sound effect for this emote, or null. Legacy [soundn] is a stem the client expands; in [emote <name>] blocks it is the full filename with extension (.opus/.wav/.ogg).",
           "default": null
         },
         "soundDelay": {
