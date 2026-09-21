@@ -25,17 +25,12 @@ the legacy banks, emitting the same normalized `Emote[]` for both.
 
 ### `[emote <name>]` blocks (preferred)
 
-Each `[emote <name>]` section is an emote. `[emotions]` optionally lists them in
-button order, one `N = <name>` per block:
+Each `[emote <name>]` section is an emote; the emote list is exactly those
+blocks, in the order they appear in the file:
 
 ```ini
 [options]
 model = model.pmx        ; present => 3D character
-
-[emotions]
-number = 2
-1 = objection
-2 = think
 
 [emote objection]
 anim      = objection.gif ; animation file, extension REQUIRED (.gif/.webp/.png 2D, .vmd 3D)
@@ -52,11 +47,12 @@ anim = think_loop.gif
 ```
 
 The **block name** (`objection`, `think`) is the emote's `key`: the stable
-identity the button keys off. It is independent of button order, so reordering
-`[emotions]` never shifts anything. `[emotions]` itself is
-optional: when it is absent (or lists no blocks) every `[emote <name>]` block is
-an emote, in the order it appears in the file; when present it selects and
-orders the blocks, and a block it does not list is not shown as a button.
+identity the button keys off. The presence of **any** `[emote <name>]` block
+switches the file to this encoding and **invalidates `[emotions]` completely**:
+it is not read at all, so it cannot select, reorder, number, or exclude blocks.
+A legacy `[emotions]`/`[soundn]`/`[soundt]` triple left in the file alongside
+blocks is dead weight and ignored. (A file with no blocks falls back to the
+legacy banks below, where `[emotions]` *is* the emote list.)
 
 Only `anim` is required in a block (`key` is the block name); every other field
 has a default, so the parsed `Emote` is a complete shape either way. Block field
