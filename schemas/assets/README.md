@@ -26,7 +26,8 @@ the legacy banks, emitting the same normalized `Emote[]` for both.
 
 ### `[emote <name>]` blocks (preferred)
 
-`[emotions]` lists the emotes in button order; each `N = <name>` names a block:
+Each `[emote <name>]` section is an emote. `[emotions]` optionally lists them in
+button order, one `N = <name>` per block:
 
 ```ini
 [options]
@@ -51,7 +52,11 @@ anim = think_loop.gif
 
 The **block name** (`objection`, `think`) is the emote's `key`: the stable
 identity shared by the button and `camera.json`. It is independent of button
-order, so reordering `[emotions]` never shifts anything. Block field names are
+order, so reordering `[emotions]` never shifts anything. `[emotions]` itself is
+optional: when it is absent (or lists no blocks) every `[emote <name>]` block is
+an emote, in the order it appears in the file; when present it selects and
+orders the blocks, and a block it does not list is not shown as a button. Block
+field names are
 the lowercased `Emote` field names: `name` (display label; defaults to the
 block name), `anim`, `preanim` (`-`/absent → null), `sound`, `sounddelayms`
 (milliseconds), `deskmod`, and `modifier`. Unlike the legacy stems, a block's
