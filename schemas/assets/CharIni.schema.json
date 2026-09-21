@@ -115,6 +115,14 @@
           "description": "Pre-animation, or null when none (`-` in the file). Legacy: a stem. In [emote <name>] blocks: the full filename with extension (as `anim`).",
           "default": null
         },
+        "postanim": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Exit animation ([emote <name>] blocks only; full filename with extension, as `anim`), or null. When leaving this emote to another with `modifier` = preanim, the client plays this postanim, then the next emote's preanim, then its loop. Legacy banks have no postanim (always null).",
+          "default": null
+        },
         "modifier": {
           "type": "integer",
           "description": "AO emote modifier (0 = none, 1 = play preanim, 5 = zoom, 6 = objection+zoom). For 3D the zoom variants are advisory; camera treatment comes from camera.json.",
@@ -151,6 +159,7 @@
         "name",
         "anim",
         "preanim",
+        "postanim",
         "modifier",
         "deskMod",
         "sound",

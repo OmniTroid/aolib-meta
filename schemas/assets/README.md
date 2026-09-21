@@ -41,6 +41,7 @@ number = 2
 [emote objection]
 anim      = objection.gif ; animation file, extension REQUIRED (.gif/.webp/.png 2D, .vmd 3D)
 preanim   = point.gif     ; animation file with extension, or omit / `-` for none
+postanim  = bow.gif       ; exit animation with extension, or omit / `-` for none
 sound     = objection.opus ; optional; file with extension (.opus/.wav/.ogg)
 sounddelayms = 480        ; optional, milliseconds
 modifier  = zoom          ; number or EmoteModifier name; 3D ignores it (see camera.json)
@@ -58,10 +59,11 @@ an emote, in the order it appears in the file; when present it selects and
 orders the blocks, and a block it does not list is not shown as a button. Block
 field names are
 the lowercased `Emote` field names: `name` (display label; defaults to the
-block name), `anim`, `preanim` (`-`/absent → null), `sound`, `sounddelayms`
-(milliseconds), `deskmod`, and `modifier`. Unlike the legacy stems, a block's
-file references **must carry the file extension** — no extension guessing:
-`anim`/`preanim` (`.gif`/`.webp`/`.png` for 2D, `.vmd` for 3D) and `sound`
+block name), `anim`, `preanim` (`-`/absent → null), `postanim` (`-`/absent →
+null), `sound`, `sounddelayms` (milliseconds), `deskmod`, and `modifier`.
+Unlike the legacy stems, a block's file references **must carry the file
+extension** — no extension guessing:
+`anim`/`preanim`/`postanim` (`.gif`/`.webp`/`.png` for 2D, `.vmd` for 3D) and `sound`
 (`.opus`/`.wav`/`.ogg`). `modifier` and `deskmod` each
 accept either a number or the matching enum name, case-insensitive:
 EmoteModifier for `modifier` (`no_preanim` 0,
@@ -69,6 +71,14 @@ EmoteModifier for `modifier` (`no_preanim` 0,
 DeskModifier for `deskmod` (`hidden` 0, `shown` 1, `hide_during_preanim` 2,
 `show_during_preanim` 3, `hide_and_center_during_preanim` 4,
 `show_during_preanim_then_center` 5).
+
+`postanim` is an exit animation, the mirror of `preanim`. On a transition
+between emotes where a preanim plays (`modifier` = `preanim`), the client plays
+the **leaving** emote's `postanim` first, then the **entering** emote's
+`preanim`, then the entering emote's loop (`anim`). Either animation may be
+absent — an emote with no `postanim` is left instantly, and an entering emote
+with no `preanim` starts its loop directly. `postanim` exists only in blocks;
+legacy characters have none.
 
 This encoding is valid for 2D and 3D. New characters (and tools) should emit it.
 
