@@ -44,8 +44,8 @@ postanim  = bow.gif       ; exit animation with extension, or omit / `-` for non
 camera    = objection_cam.vmd ; 3D: camera-motion VMD framing this emote, or omit / `-`
 sound     = objection.opus ; optional; file with extension (.opus/.wav/.ogg)
 sounddelayms = 480        ; optional, milliseconds
-modifier  = zoom          ; number or EmoteModifier name; 3D ignores it (use the emote's camera VMD)
-deskmod   = shown         ; optional; number or DeskModifier name
+modifier  = zoom          ; EmoteModifier NAME (not a number); 3D ignores it (use the emote's camera VMD)
+deskmod   = shown         ; optional; DeskModifier NAME (not a number)
 
 [emote think]
 anim = think_loop.gif
@@ -69,13 +69,13 @@ Unlike the legacy stems, a block's file references **must carry the file
 extension** — no extension guessing:
 `anim`/`preanim`/`postanim` (`.gif`/`.webp`/`.png` for 2D, `.vmd` for 3D),
 `camera` (a `.vmd` with a camera track, 3D only), and `sound`
-(`.opus`/`.wav`/`.ogg`). `modifier` and `deskmod` each
-accept either a number or the matching enum name, case-insensitive:
-EmoteModifier for `modifier` (`no_preanim` 0,
-`preanim` 1, `preanim_and_objection` 2, `zoom` 5, `objection_zoom` 6) and
-DeskModifier for `deskmod` (`hidden` 0, `shown` 1, `hide_during_preanim` 2,
-`show_during_preanim` 3, `hide_and_center_during_preanim` 4,
-`show_during_preanim_then_center` 5).
+(`.opus`/`.wav`/`.ogg`). `modifier` and `deskmod` must each be the matching
+enum NAME, case-insensitive — a bare number is rejected, so the meaning is never
+a magic value. EmoteModifier for `modifier` (`no_preanim`, `preanim`,
+`preanim_and_objection`, `zoom`, `objection_zoom`) and DeskModifier for
+`deskmod` (`hidden`, `shown`, `hide_during_preanim`, `show_during_preanim`,
+`hide_and_center_during_preanim`, `show_during_preanim_then_center`). (The
+legacy `#` banks keep their positional numeric fields.)
 
 `postanim` is an exit animation, the mirror of `preanim`. The preanim phase is
 gated: it runs only when preanim is enabled **for that message** — the sender's
@@ -90,8 +90,18 @@ The gate follows the effective emote modifier: preanim runs for the
 preanim-playing values (`preanim`, `preanim_and_objection`, `objection_zoom`)
 and not for `no_preanim` or `zoom`. An emote's own `modifier` field is that
 message's default, so an emote authored with a preanim-playing `modifier` turns
-the toggle on by default (the box appears pre-checked). `postanim` exists only
-in blocks; legacy characters have none.
+the toggle on by default (the box appears pre-checked).
+
+**Same-character continuation overrides the gate.** When the same character is
+already on screen (showing its idle loop, not making a fresh entrance) and
+switches emotes, and the leaving emote has a `postanim` and the entering emote
+has a `preanim`, the client plays the transition (`postanim` → `preanim` →
+loop) regardless of the message's preanim toggle. This keeps an authored
+`postanim`/`preanim` pair chaining smoothly on a same-character emote change
+even when the sender did not check the box; it does not apply across a character
+change or when only one of the two animations exists. `postanim` exists only in
+blocks; legacy characters have none. See [SEQUENCING.md](./SEQUENCING.md) for the
+full phase model, override conditions, and worked examples.
 
 This encoding is valid for 2D and 3D. New characters (and tools) should emit it.
 

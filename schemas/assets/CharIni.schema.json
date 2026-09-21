@@ -120,7 +120,7 @@
             "string",
             "null"
           ],
-          "description": "Exit animation ([emote <name>] blocks only; full filename with extension, as `anim`), or null. Plays only during a gated preanim phase: when a message enables preanim (a preanim-playing emote modifier), the client plays the leaving emote's postanim, then the entering emote's preanim, then its loop; when preanim is off, neither plays. Legacy banks have no postanim (always null).",
+          "description": "Exit animation ([emote <name>] blocks only; full filename with extension, as `anim`), or null. Plays during a gated preanim phase: when a message enables preanim (a preanim-playing emote modifier), the client plays the leaving emote's postanim, then the entering emote's preanim, then its loop; when preanim is off, neither plays. Exception: on a same-character emote switch (character already on its idle loop) where the leaving emote has a postanim and the entering emote has a preanim, the transition plays regardless of the toggle. Legacy banks have no postanim (always null).",
           "default": null
         },
         "camera": {
