@@ -77,13 +77,21 @@ DeskModifier for `deskmod` (`hidden` 0, `shown` 1, `hide_during_preanim` 2,
 `show_during_preanim` 3, `hide_and_center_during_preanim` 4,
 `show_during_preanim_then_center` 5).
 
-`postanim` is an exit animation, the mirror of `preanim`. On a transition
-between emotes where a preanim plays (`modifier` = `preanim`), the client plays
-the **leaving** emote's `postanim` first, then the **entering** emote's
-`preanim`, then the entering emote's loop (`anim`). Either animation may be
-absent — an emote with no `postanim` is left instantly, and an entering emote
-with no `preanim` starts its loop directly. `postanim` exists only in blocks;
-legacy characters have none.
+`postanim` is an exit animation, the mirror of `preanim`. The preanim phase is
+gated: it runs only when preanim is enabled **for that message** — the sender's
+"Preanim" toggle, carried on the wire as the MS emote modifier. When it is off,
+**neither** the leaving emote's `postanim` **nor** the entering emote's
+`preanim` plays: the entering emote goes straight to its loop and the previous
+emote is left instantly. When it is on, the client plays the **leaving** emote's
+`postanim` first, then the **entering** emote's `preanim`, then the entering
+emote's loop (`anim`); either file may be absent and is simply skipped.
+
+The gate follows the effective emote modifier: preanim runs for the
+preanim-playing values (`preanim`, `preanim_and_objection`, `objection_zoom`)
+and not for `no_preanim` or `zoom`. An emote's own `modifier` field is that
+message's default, so an emote authored with a preanim-playing `modifier` turns
+the toggle on by default (the box appears pre-checked). `postanim` exists only
+in blocks; legacy characters have none.
 
 This encoding is valid for 2D and 3D. New characters (and tools) should emit it.
 

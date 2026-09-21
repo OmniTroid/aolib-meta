@@ -47,23 +47,29 @@
         },
         "side": {
           "type": "string",
-          "default": ""
-        },
-        "gender": {
-          "type": "string",
-          "default": ""
+          "description": "Court position (e.g. def/pro/wit). Defaults to `wit` when the file has no `side` key.",
+          "default": "wit"
         },
         "blips": {
           "type": "string",
-          "default": ""
+          "description": "Blip (typing sound) set. Defaults to `male` when the file has no `blips` key; falls back to the obsolete `gender` key when present. `gender` is the legacy predecessor of `blips` and is not modelled here (it remains readable via additional properties).",
+          "default": "male"
         },
         "chat": {
-          "type": "string",
-          "default": ""
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Chat/blip category, or null when the file has no `chat` key (distinct from an explicit empty `chat =`).",
+          "default": null
         },
         "category": {
-          "type": "string",
-          "default": ""
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Emote/preanim category, or null when the file has no `category` key (distinct from an explicit empty `category =`).",
+          "default": null
         },
         "model": {
           "type": "string",
@@ -75,7 +81,6 @@
         "name",
         "showname",
         "side",
-        "gender",
         "blips",
         "chat",
         "category"
@@ -115,7 +120,7 @@
             "string",
             "null"
           ],
-          "description": "Exit animation ([emote <name>] blocks only; full filename with extension, as `anim`), or null. When leaving this emote to another with `modifier` = preanim, the client plays this postanim, then the next emote's preanim, then its loop. Legacy banks have no postanim (always null).",
+          "description": "Exit animation ([emote <name>] blocks only; full filename with extension, as `anim`), or null. Plays only during a gated preanim phase: when a message enables preanim (a preanim-playing emote modifier), the client plays the leaving emote's postanim, then the entering emote's preanim, then its loop; when preanim is off, neither plays. Legacy banks have no postanim (always null).",
           "default": null
         },
         "camera": {
