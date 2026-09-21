@@ -14,7 +14,7 @@ schemas/
   packets/<Name>.schema.json   one per AO packet
   enums/<Name>.schema.json     shared named enums, $ref'd from packets
   types/<Name>.schema.json     shared object types, $ref'd from packets
-  assets/<Name>.schema.json    character asset-file formats (char.ini, camera.json)
+  assets/<Name>.schema.json    character asset-file formats (char.ini)
 ```
 
 All files use the `.schema.json` suffix. Kind is determined by directory,
